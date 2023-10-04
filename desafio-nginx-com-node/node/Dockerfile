@@ -2,6 +2,9 @@ FROM node:18
 
 WORKDIR /usr/src/app
 
+COPY . .
+RUN npm install
+
 RUN apt-get update 
 RUN apt-get install -y wget 
 
@@ -10,3 +13,4 @@ RUN wget -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_
     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 3000
+
